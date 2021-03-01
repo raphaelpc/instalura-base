@@ -13,13 +13,13 @@ export const MenuWrapper = styled.nav`
     padding-right: 28px;
 `;
 
-MenuWrapper.LeftSide = styled.div`
+export const MenuWrapperLeft = styled.div`
     padding: 0;
     margin: 0;
     order: 1;
 `;
 
-MenuWrapper.CentralSide = styled.div`
+export const MenuWrapperCentral = styled.div`
     padding: 0;
     margin: 0;
     order: 3;
@@ -50,7 +50,7 @@ MenuWrapper.CentralSide = styled.div`
     }
 `;
 
-MenuWrapper.RightSide = styled.div`
+export const MenuWrapperRight = styled.div`
     padding: 0;
     margin: 0;
     flex: 1;

@@ -3,7 +3,7 @@ import { get } from 'lodash';
 
 interface ButtonProps {
     variant: string;
-    ghost: boolean;
+    ghost?: boolean;
 }
 
 const ButtonGhost = css<ButtonProps>`

@@ -1,5 +1,5 @@
 import { Button } from './Button';
-import { MenuWrapper } from './MenuWrapper';
+import { MenuWrapper, MenuWrapperCentral, MenuWrapperLeft, MenuWrapperRight } from './MenuWrapper';
 import { Logo } from '../../theme/Logo';
 
 const links = [
@@ -21,11 +21,11 @@ export function Menu() {
 
     return (
         <MenuWrapper>
-            <MenuWrapper.LeftSide>
+            <MenuWrapperLeft>
                 <Logo />
-            </MenuWrapper.LeftSide>
+            </MenuWrapperLeft>
 
-            <MenuWrapper.CentralSide>
+            <MenuWrapperCentral>
                 {
                     links.map(link => ((
                         <li key={link.texto}>
@@ -35,9 +35,9 @@ export function Menu() {
                         </li>
                     )))
                 }
-            </MenuWrapper.CentralSide>
+            </MenuWrapperCentral>
 
-            <MenuWrapper.RightSide>
+            <MenuWrapperRight>
                 <Button variant="secondary.main" ghost>
                     Entrar
                 </Button>
@@ -45,7 +45,7 @@ export function Menu() {
                 <Button variant="primary.main">
                     Cadastrar
                 </Button>
-            </MenuWrapper.RightSide>
+            </MenuWrapperRight>
         </MenuWrapper>
     )
 }
