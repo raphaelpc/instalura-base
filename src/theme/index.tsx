@@ -42,7 +42,8 @@ const myTheme: DefaultTheme = {
         },
     },
     borderRadius: '8px',
-    transition: '200ms ease-in-out'
+    fontFamily: '\'Rubik\', sans-serif',
+    transition: '200ms ease-in-out',
 };
 
 export default myTheme;

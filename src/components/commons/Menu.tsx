@@ -1,6 +1,65 @@
+import styled from 'styled-components';
 import { Button } from './Button';
-import { MenuWrapper, MenuWrapperCentral, MenuWrapperLeft, MenuWrapperRight } from './MenuWrapper';
 import { Logo } from '../../theme/Logo';
+
+const MenuWrapper = styled.nav`
+    font-family: 'Rubik', sans-serif;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    margin-top: 18px;
+    padding-left: 28px;
+    padding-right: 28px;
+
+    div {
+        padding: 0;
+        margin: 0;
+
+        &.left {
+            order: 1;
+        }
+
+        &.central {
+            order: 3;
+            width: 100%;
+            list-style: none;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-top: 17px;
+            border-top: 1px solid #88989E;
+            border-bottom: 1px solid #88989E;
+            padding: 12px;
+
+            a {
+                text-align: center;
+                display: block;
+                text-decoration: none;
+                color: #88989E;
+                transition: 200ms ease-in-out;
+
+                &:hover,
+                &:focus {
+                    font-weight: 500;
+                    color: #070C0E;
+                }
+            }
+        }
+
+        &.right {
+            order: 2;
+            flex: 1;
+
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+`;
 
 const links = [
     {
@@ -21,11 +80,11 @@ export function Menu() {
 
     return (
         <MenuWrapper>
-            <MenuWrapperLeft>
+            <div className="left">
                 <Logo />
-            </MenuWrapperLeft>
+            </div>
 
-            <MenuWrapperCentral>
+            <div className="central">
                 {
                     links.map(link => ((
                         <li key={link.texto}>
@@ -35,9 +94,9 @@ export function Menu() {
                         </li>
                     )))
                 }
-            </MenuWrapperCentral>
+            </div>
 
-            <MenuWrapperRight>
+            <div className="right">
                 <Button variant="secondary.main" ghost>
                     Entrar
                 </Button>
@@ -45,7 +104,7 @@ export function Menu() {
                 <Button variant="primary.main">
                     Cadastrar
                 </Button>
-            </MenuWrapperRight>
+            </div>
         </MenuWrapper>
     )
 }

@@ -47,6 +47,7 @@ declare module 'styled-components' {
             };
         };
         borderRadius: string;
+        fontFamily: string;
         transition: string;
     }
 }
