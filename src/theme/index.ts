@@ -1,4 +1,5 @@
 import { DefaultTheme } from 'styled-components';
+import { typographyVariants } from './typographyVariants';
 
 const myTheme: DefaultTheme = {
     colors: {
@@ -41,6 +42,7 @@ const myTheme: DefaultTheme = {
             dark: {},
         },
     },
+    typographyVariants,
     borderRadius: '8px',
     fontFamily: '\'Rubik\', sans-serif',
     transition: '200ms ease-in-out',

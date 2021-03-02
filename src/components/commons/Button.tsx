@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { get } from 'lodash';
+import { TextStyleVariants } from '../foundation/Text'
 
 interface ButtonProps {
     variant: string;
@@ -22,7 +23,8 @@ export const Button = styled.button<ButtonProps>`
     cursor: pointer;
     font-weight: bold;
     opacity: 1;
-    
+
+    ${TextStyleVariants.smallestException}
     ${props => props.ghost ? ButtonGhost : ButtonDefault}
 
     transition: opacity ${props => props.theme.transition};

@@ -5,47 +5,43 @@ import 'styled-components';
 // and extend them!
 declare module 'styled-components' {
 
+    export interface ColorType {
+        color: string;
+        contrastText?: string;
+    }
+
+    export interface Color {
+        main: ColorType;
+        light?: ColorType;
+    }
+
+    export interface TypographyVariant {
+        fontSize: string;
+        fontWeight: string;
+        lineHeight: number;
+    }
+
+    export interface TypographyVariants {
+        title: TypographyVariant;
+        titleXS: TypographyVariant;
+        subTitle: TypographyVariant;
+        paragraph1: TypographyVariant;
+        paragraph2: TypographyVariant;
+        smallestException: TypographyVariant;
+    }
+
     export interface DefaultTheme {
         colors: {
-            background: {
-                light: {
-                    color: string;
-                };
-                main: {
-                    color: string;
-                };
-            };
-            borders: {
-                main: {
-                    color: string;
-                };
-            };
-            primary: {
-                main: {
-                    color: string;
-                    contrastText: string;
-                };
-            };
-            secondary: {
-                main: {
-                    color: string;
-                    contrastText: string;
-                };
-            };
-            tertiary: {
-                main: {
-                    color: string;
-                    contrastText: string;
-                };
-                light: {
-                    color: string;
-                    contrastText: string;
-                };
-            };
+            background: Color;
+            borders: Color;
+            primary: Color;
+            secondary: Color;
+            tertiary: Color;
             modes: {
                 dark: {};
             };
         };
+        typographyVariants: TypographyVariants;
         borderRadius: string;
         fontFamily: string;
         transition: string;

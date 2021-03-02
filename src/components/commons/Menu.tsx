@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { Button } from './Button';
 import { Logo } from '../../theme/Logo';
+import Text from '../foundation/Text';
 
 const MenuWrapper = styled.nav`
-    font-family: 'Rubik', sans-serif;
+    font-family: ${props => props.theme.fontFamily};
 
     display: flex;
     align-items: center;
@@ -88,9 +89,12 @@ export function Menu() {
                 {
                     links.map(link => ((
                         <li key={link.texto}>
-                            <a href={link.url}>
+                            {/* <a href={link.url}>
                                 {link.texto}
-                            </a>
+                            </a> */}
+                            <Text variant="smallestException" tag="a" href={link.url}>
+                                {link.texto}
+                            </Text>
                         </li>
                     )))
                 }
