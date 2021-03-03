@@ -15,6 +15,17 @@ declare module 'styled-components' {
         light?: ColorType;
     }
 
+    export interface Colors {
+        background: Color;
+        borders: Color;
+        primary: Color;
+        secondary: Color;
+        tertiary: Color;
+        modes: {
+            dark: {};
+        };
+    }
+
     export interface TypographyVariant {
         fontSize: string;
         fontWeight: string;
@@ -30,18 +41,18 @@ declare module 'styled-components' {
         smallestException: TypographyVariant;
     }
 
+    export interface Breakpoints {
+        xs: number;
+        sm: number;
+        md: number;
+        lg: number;
+        xl: number;
+    }
+
     export interface DefaultTheme {
-        colors: {
-            background: Color;
-            borders: Color;
-            primary: Color;
-            secondary: Color;
-            tertiary: Color;
-            modes: {
-                dark: {};
-            };
-        };
+        colors: Colors;
         typographyVariants: TypographyVariants;
+        breakpoints: Breakpoints;
         borderRadius: string;
         fontFamily: string;
         transition: string;

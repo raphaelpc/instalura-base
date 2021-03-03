@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import { get } from 'lodash';
 import { TextStyleVariants } from '../foundation/Text'
+import { breakpointsMedia } from '../../theme/utils/breakpointsMedia';
 
 interface ButtonProps {
     variant: string;
@@ -34,4 +35,13 @@ export const Button = styled.button<ButtonProps>`
     &:focus {
         opacity: .5;
     }
+
+    ${breakpointsMedia({
+        xs: css`
+            ${TextStyleVariants.smallestException}
+        `,
+        md: css`
+            ${TextStyleVariants.paragraph1}
+        `,
+    })}
 `;

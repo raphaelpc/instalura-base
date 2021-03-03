@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
 import theme from '../theme';
-import { GlobalStyle } from '../theme/GlobalStyle';
+import { GlobalStyle } from '../theme/utils/GlobalStyle';
 
 export default function App({ Component, pageProps }: AppProps) {
     return (
