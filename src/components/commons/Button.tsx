@@ -2,11 +2,13 @@ import styled, { css } from 'styled-components';
 import { get } from 'lodash';
 import { TextStyleVariants } from '../foundation/Text'
 import { breakpointsMedia } from '../../theme/utils/breakpointsMedia';
-import { propToStyle } from '../../theme/utils/propToStyle';
+import { PropToStyle, propToStyle } from '../../theme/utils/propToStyle';
 
 interface ButtonProps {
     variant: string;
     ghost?: boolean;
+    margin?: PropToStyle;
+    display?: PropToStyle;
     [propName: string]: any;
 }
 

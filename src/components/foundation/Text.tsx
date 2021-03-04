@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
-import { propToStyle } from '../../theme/utils/propToStyle';
+import { PropToStyle, propToStyle } from '../../theme/utils/propToStyle';
 
 export const TextStyleVariants = {
     paragraph1: css`
@@ -18,6 +18,7 @@ export const TextStyleVariants = {
 
 interface TextBaseProps {
     variant?: string;
+    textAlign?: PropToStyle;
 }
 
 const TextBase = styled.span<TextBaseProps>`
