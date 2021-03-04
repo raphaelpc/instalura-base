@@ -12,7 +12,13 @@ interface CssByBreakpoints {
 export function breakpointsMedia(cssByBreakpoints: CssByBreakpoints) {
 
     const breakpointsNames = Object.keys(cssByBreakpoints);
-    return breakpointsNames.map(breakpointName => css`
+    const breakpointsAvailable = Object.keys(breakpoints);
+
+    // considera somente os breakpoints válidos
+    const breakpointsFiltered = 
+        breakpointsNames.filter(breakpointName => breakpointsAvailable.includes(breakpointName));
+
+    return breakpointsFiltered.map(breakpointName => css`
         @media screen and (min-width: ${breakpoints[breakpointName]}px) {
             ${cssByBreakpoints[breakpointName]}
         }

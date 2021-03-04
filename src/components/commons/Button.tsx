@@ -2,10 +2,12 @@ import styled, { css } from 'styled-components';
 import { get } from 'lodash';
 import { TextStyleVariants } from '../foundation/Text'
 import { breakpointsMedia } from '../../theme/utils/breakpointsMedia';
+import { propToStyle } from '../../theme/utils/propToStyle';
 
 interface ButtonProps {
     variant: string;
     ghost?: boolean;
+    [propName: string]: any;
 }
 
 const ButtonGhost = css<ButtonProps>`
@@ -25,7 +27,6 @@ export const Button = styled.button<ButtonProps>`
     font-weight: bold;
     opacity: 1;
 
-    ${TextStyleVariants.smallestException}
     ${props => props.ghost ? ButtonGhost : ButtonDefault}
 
     transition: opacity ${props => props.theme.transition};
@@ -44,4 +45,7 @@ export const Button = styled.button<ButtonProps>`
             ${TextStyleVariants.paragraph1}
         `,
     })}
+
+    ${propToStyle('margin')}
+    ${propToStyle('display')}
 `;

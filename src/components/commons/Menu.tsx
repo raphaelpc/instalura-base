@@ -119,20 +119,20 @@ const MenuWrapper = styled.nav`
     }
 `;
 
-    const links = [
-        {
-            texto: 'Home',
-            url: '/',
-        },
-        {
-            texto: 'Perguntas Frequentes',
-            url: '/faq',
-        },
-        {
-            texto: 'Sobre',
-            url: '/sobre',
-        },
-    ]
+const links = [
+    {
+        texto: 'Home',
+        url: '/',
+    },
+    {
+        texto: 'Perguntas Frequentes',
+        url: '/faq',
+    },
+    {
+        texto: 'Sobre',
+        url: '/sobre',
+    },
+]
 
 export function Menu() {
 
@@ -159,11 +159,11 @@ export function Menu() {
 
             <div className="right">
                 <Button variant="secondary.main" ghost>
-        Entrar
+                    Entrar
                 </Button>
 
                 <Button variant="primary.main">
-        Cadastrar
+                    Cadastrar
                 </Button>
             </div>
         </MenuWrapper >

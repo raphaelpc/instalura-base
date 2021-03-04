@@ -1,6 +1,7 @@
 // @ts-nocheck
 import { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
+import { propToStyle } from '../../theme/utils/propToStyle';
 
 export const TextStyleVariants = {
     paragraph1: css`
@@ -16,28 +17,32 @@ export const TextStyleVariants = {
 }
 
 interface TextBaseProps {
-    as?: any;
     variant: string;
-    href?: string;
 }
 
 const TextBase = styled.span<TextBaseProps>`
     ${props => TextStyleVariants[props.variant]}
+    ${propToStyle('textAlign')}
 `;
 
 interface TextProps extends TextBaseProps {
     tag: string;
     children: ReactNode;
+    [propName: string]: any;
 }
 
 // p -> parágrafo
 // h1, h2, ..., h6 -> títulos
 // span -> textos inline
-export default function Text({ children, tag, variant }: TextProps) {
+export default function Text({ children, tag, variant, ...rest }: TextProps) {
 
     //TODO: as dá erro de compilação typescript
     return (
-        <TextBase as={tag} variant={variant}>
+        <TextBase 
+            as={tag} 
+            variant={variant}
+            {...rest}
+        >
             {children}
         </TextBase>
     );
