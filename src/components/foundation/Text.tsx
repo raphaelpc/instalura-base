@@ -17,7 +17,7 @@ export const TextStyleVariants = {
 }
 
 interface TextBaseProps {
-    variant: string;
+    variant?: string;
 }
 
 const TextBase = styled.span<TextBaseProps>`

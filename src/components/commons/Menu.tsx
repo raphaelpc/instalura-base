@@ -146,9 +146,6 @@ export function Menu() {
                 {
                     links.map(link => ((
                         <li key={link.texto}>
-                            {/* <a href={link.url}>
-                                {link.texto}
-                            </a> */}
                             <Text tag="a" href={link.url}>
                                 {link.texto}
                             </Text>
