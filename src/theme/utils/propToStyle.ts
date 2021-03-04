@@ -18,7 +18,7 @@ export function propToStyle(propName: string) {
 
         const propValue = props[propName];
 
-        if (typeof propValue === 'string') {
+        if (typeof propValue === 'string' || typeof propValue === 'number') {
             return {
                 [propName]: propValue,
             }

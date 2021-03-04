@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 import { Button } from './Button';
-import { Logo } from '../../theme/utils/Logo';
-import Text, { TextStyleVariants } from '../foundation/Text';
+import Text from '../foundation/Text';
 import { breakpointsMedia } from '../../theme/utils/breakpointsMedia';
+import { TextStyleVariants } from '../../theme/utils/text/TextStyleVariants';
 
 const MenuWrapper = styled.nav`
     font-family: ${props => props.theme.fontFamily};
@@ -139,7 +139,7 @@ export function Menu() {
     return(
         <MenuWrapper>
             <div className="left">
-                <Logo />
+                <img src={`/images/logo.svg`} alt="Instalura" />
             </div>
 
             <div className="central">

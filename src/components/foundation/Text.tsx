@@ -1,27 +1,18 @@
 // @ts-nocheck
+import { get } from 'lodash';
 import { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import { PropToStyle, propToStyle } from '../../theme/utils/propToStyle';
-
-export const TextStyleVariants = {
-    paragraph1: css`
-        font-size: ${props => props.theme.typographyVariants.paragraph1.fontSize};
-        font-weight: ${props => props.theme.typographyVariants.paragraph1.fontWeight};
-        line-height: ${props => props.theme.typographyVariants.paragraph1.lineHeight};
-    `,
-    smallestException: css`
-        font-size: ${props => props.theme.typographyVariants.smallestException.fontSize};
-        font-weight: ${props => props.theme.typographyVariants.smallestException.fontWeight};
-        line-height: ${props => props.theme.typographyVariants.smallestException.lineHeight};
-    `,
-}
+import { TextStyleVariants } from '../../theme/utils/text/TextStyleVariants';
 
 interface TextBaseProps {
     variant?: string;
+    color?: string;
     textAlign?: PropToStyle;
 }
 
 const TextBase = styled.span<TextBaseProps>`
+    color: ${props => get(props.theme, `colors.${props.color}.color`)};
     ${props => TextStyleVariants[props.variant]}
     ${propToStyle('textAlign')}
 `;

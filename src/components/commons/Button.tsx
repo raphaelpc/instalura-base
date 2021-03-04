@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 import { get } from 'lodash';
-import { TextStyleVariants } from '../foundation/Text'
 import { breakpointsMedia } from '../../theme/utils/breakpointsMedia';
 import { PropToStyle, propToStyle } from '../../theme/utils/propToStyle';
+import { TextStyleVariants } from '../../theme/utils/text/TextStyleVariants';
 
 interface ButtonProps {
     variant: string;

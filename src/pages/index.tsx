@@ -2,7 +2,8 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import { Button } from '../components/commons/Button';
 import { Footer } from '../components/commons/Footer'
-import { Menu } from '../components/commons/Menu'
+import { Menu } from '../components/commons/Menu';
+import { Box } from '../components/foundation/layout/Box';
 import { Grid } from '../components/foundation/layout/Grid';
 import Text from '../components/foundation/Text';
 
@@ -17,22 +18,37 @@ export const HomeTemplate = styled.main`
 
 export default function Home() {
     return (
-        <HomeTemplate>
+        <Box
+            flex={1}
+            display="flex"
+            flexWrap="wrap"
+            flexDirection="column"
+            justifyContent="space-between"
+            backgroundImage="url(/images/bubbles.svg)"
+            backgroundRepeat="no-repeat"
+            backgroundPosition="bottom right"
+        >
             <Head>
                 <title>Instalura!!</title>
             </Head>
 
             <Menu />
 
-            <Grid.Container>
+            <Grid.Container
+                marginTop={{ xs: '10px', md: '0px' }}
+            >
                 <Grid.Row>
                     <Grid.Col
                         value={{ xs: 12, md: 5 }}
                         offset={{ xs: 0, md: 1 }}
+                        display="flex"
+                        flexDirection="column"
+                        justifyContent="center"
+                        alignItems="flex-start"
                     >
                         <Text
-                            variant="title"
                             tag="h1"
+                            variant="title"
                             color="tertiary.main"
                             textAlign={{
                                 xs: 'center',
@@ -43,8 +59,8 @@ export default function Home() {
                         </Text>
 
                         <Text
-                            variant="paragraph1"
                             tag="p"
+                            variant="paragraph1"
                             color="tertiary.light"
                             textAlign={{
                                 xs: 'center',
@@ -59,7 +75,7 @@ export default function Home() {
                             variant="primary.main"
                             display="block"
                             margin={{
-                                xs: "auto",
+                                xs: "auto auto 40px",
                                 md: "initial"
                             }}
                         >
@@ -71,7 +87,7 @@ export default function Home() {
                         value={{ xs: 12, md: 6 }}
                     >
                         <img
-                            src="https://bootcamp-alura-01-git-modulo01.omariosouto.vercel.app/images/phones.png"
+                            src="/images/phones.png"
                             alt="Instalura"
                             style={{
                                 display: 'block',
@@ -83,6 +99,6 @@ export default function Home() {
             </Grid.Container>
 
             <Footer />
-        </HomeTemplate>
+        </Box>
     )
 }

@@ -1,10 +1,14 @@
 import styled, { css } from 'styled-components';
 import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
-import { PropToStyle } from '../../../theme/utils/propToStyle';
+import { propToStyle, PropToStyle } from '../../../theme/utils/propToStyle';
 import { valueToStyle } from '../../../theme/utils/grid/valueToStyle';
 import { offsetToStyle } from '../../../theme/utils/grid/offsetToStyle';
 
-const Container = styled.div`
+interface ContainerProps {
+    [propName: string]: any;
+}
+
+const Container = styled.div<ContainerProps>`
     width: 100%;
     max-width: initial;
 
@@ -29,6 +33,8 @@ const Container = styled.div`
             max-width: 1222px;
         `,
     })}
+
+    ${propToStyle('marginTop')}
 `;
 
 const Row = styled.div`
@@ -41,6 +47,7 @@ const Row = styled.div`
 interface ColProps {
     value?: PropToStyle;
     offset?: PropToStyle;
+    [propName: string]: any;
 }
 
 const Col = styled.div<ColProps>`
@@ -52,6 +59,11 @@ const Col = styled.div<ColProps>`
 
     ${props => valueToStyle(props.value)}
     ${props => offsetToStyle(props.offset)}
+
+    ${propToStyle('display')}
+    ${propToStyle('alignItems')}
+    ${propToStyle('justifyContent')}
+    ${propToStyle('flexDirection')}
 `;
 
 export const Grid = {
