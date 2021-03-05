@@ -1,42 +1,43 @@
 import { Colors } from 'styled-components';
 
+// eslint-disable-next-line import/prefer-default-export
 export const colors: Colors = {
-    background: {
-        light: {
-            color: '#FFFFFF',
-        },
-        main: {
-            color: '#F2F2F2',
-        },
+  background: {
+    light: {
+      color: '#FFFFFF',
     },
-    borders: {
-        main: {
-            color: '#F1F1F1',
-        },
+    main: {
+      color: '#F2F2F2',
     },
-    primary: {
-        main: {
-            color: '#D7385E',
-            contrastText: '#fff',
-        },
+  },
+  borders: {
+    main: {
+      color: '#F1F1F1',
     },
-    secondary: {
-        main: {
-            color: '#FB7B6B',
-            contrastText: '#fff',
-        },
+  },
+  primary: {
+    main: {
+      color: '#D7385E',
+      contrastText: '#fff',
     },
-    tertiary: {
-        main: {
-            color: '#070C0E',
-            contrastText: '#fff',
-        },
-        light: {
-            color: '#88989E',
-            contrastText: '#fff',
-        },
+  },
+  secondary: {
+    main: {
+      color: '#FB7B6B',
+      contrastText: '#fff',
     },
-    modes: {
-        dark: {},
+  },
+  tertiary: {
+    main: {
+      color: '#070C0E',
+      contrastText: '#fff',
     },
-}
+    light: {
+      color: '#88989E',
+      contrastText: '#fff',
+    },
+  },
+  modes: {
+    dark: {},
+  },
+};

@@ -1,14 +1,14 @@
 // @ts-nocheck
+import React, { ReactNode } from 'react';
 import { get } from 'lodash';
-import { ReactNode } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { PropToStyle, propToStyle } from '../../theme/utils/propToStyle';
 import { TextStyleVariants } from '../../theme/utils/text/TextStyleVariants';
 
 interface TextBaseProps {
-    variant?: string;
-    color?: string;
-    textAlign?: PropToStyle;
+  variant?: string;
+  color?: string;
+  textAlign?: PropToStyle;
 }
 
 const TextBase = styled.span<TextBaseProps>`
@@ -26,22 +26,21 @@ interface TextProps extends TextBaseProps {
 // p -> parágrafo
 // h1, h2, ..., h6 -> títulos
 // span -> textos inline
-export default function Text({ children, tag, variant, ...rest }: TextProps) {
-
-    //TODO: as dá erro de compilação typescript
-    return (
-        <TextBase 
-            as={tag} 
-            variant={variant}
-            {...rest}
-        >
-            {children}
-        </TextBase>
-    );
+export default function Text({
+  children,
+  tag,
+  variant,
+  ...rest
+}: TextProps) {
+  // TODO: as dá erro de compilação typescript
+  return (
+    <TextBase
+      as={tag || 'span'}
+      variant={variant || 'paragraph1'}
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...rest}
+    >
+      {children}
+    </TextBase>
+  );
 }
-
-Text.defaultProps = {
-    tag: 'span',
-    variant: 'paragraph1',
-}
-

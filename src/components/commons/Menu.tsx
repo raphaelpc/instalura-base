@@ -1,8 +1,63 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
-import { Button } from './Button';
+import Button from './Button';
 import Text from '../foundation/Text';
 import { breakpointsMedia } from '../../theme/utils/breakpointsMedia';
 import { TextStyleVariants } from '../../theme/utils/text/TextStyleVariants';
+
+const cssByBreakpointsMenuWrapper = {
+  md: css`
+      justify-content: flex-start;
+      margin-top: 32px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      padding: 0 16px;
+      max-width: 768px;
+  `,
+  lg: css`
+      max-width: 1160px;
+  `,
+  xl: css`
+      max-width: 1222px;
+  `,
+};
+
+const cssByBreakpointsMenuWrapperDivLeft = {
+  md: css`
+      width: 131px;
+      height: 28px;
+      order: initial;
+      padding-right: 16px;
+  `,
+};
+
+const cssByBreakpointsMenuWrapperDivCentral = {
+  md: css`
+      max-width: 332px;
+      flex: 1;
+      order: initial;
+      border: none;
+      margin: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+  `,
+};
+
+const cssByBreakpointsMenuWrapperDivCentralA = {
+  xs: css`
+      ${TextStyleVariants.smallestException}
+  `,
+  md: css`
+      ${TextStyleVariants.paragraph1}
+  `,
+};
+
+const cssByBreakpointsMenuWrapperDivRight = {
+  md: css`
+      order: initial;
+  `,
+};
 
 const MenuWrapper = styled.nav`
     font-family: ${props => props.theme.fontFamily};
@@ -16,23 +71,7 @@ const MenuWrapper = styled.nav`
     padding-left: 28px;
     padding-right: 28px;
 
-    ${breakpointsMedia({
-        md: css`
-            justify-content: flex-start;
-            margin-top: 32px;
-            margin-left: auto;
-            margin-right: auto;
-            width: 100%;
-            padding: 0 16px;
-            max-width: 768px;
-        `,
-        lg: css`
-            max-width: 1160px;
-        `,
-        xl: css`
-            max-width: 1222px;
-        `,
-    })}
+    ${breakpointsMedia(cssByBreakpointsMenuWrapper)}
 
     div {
         padding: 0;
@@ -41,14 +80,7 @@ const MenuWrapper = styled.nav`
         &.left {
             order: 1;
 
-            ${breakpointsMedia({
-                md: css`
-                    width: 131px;
-                    height: 28px;
-                    order: initial;
-                    padding-right: 16px;
-                `,
-            })}
+            ${breakpointsMedia(cssByBreakpointsMenuWrapperDivLeft)}
         }
 
         &.central {
@@ -65,17 +97,7 @@ const MenuWrapper = styled.nav`
             border-bottom: 1px solid #88989E;
             padding: 12px;
 
-            ${breakpointsMedia({
-                md: css`
-                    max-width: 332px;
-                    flex: 1;
-                    order: initial;
-                    border: none;
-                    margin: 0;
-                    padding-top: 0;
-                    padding-bottom: 0;
-                `,
-            })}
+            ${breakpointsMedia(cssByBreakpointsMenuWrapperDivCentral)}
 
             a {
                 text-align: center;
@@ -84,14 +106,7 @@ const MenuWrapper = styled.nav`
                 color: #88989E;
                 transition: 200ms ease-in-out;
 
-                ${breakpointsMedia({
-                    xs: css`
-                        ${TextStyleVariants.smallestException}
-                    `,
-                    md: css`
-                        ${TextStyleVariants.paragraph1}
-                    `,
-                })}
+                ${breakpointsMedia(cssByBreakpointsMenuWrapperDivCentralA)}
 
                 &:hover,
                 &:focus {
@@ -110,59 +125,54 @@ const MenuWrapper = styled.nav`
             padding: 0;
             margin: 0;
 
-            ${breakpointsMedia({
-                md: css`
-                    order: initial;
-                `,
-            })}
+            ${breakpointsMedia(cssByBreakpointsMenuWrapperDivRight)}
         }
     }
 `;
 
 const links = [
-    {
-        texto: 'Home',
-        url: '/',
-    },
-    {
-        texto: 'Perguntas Frequentes',
-        url: '/faq',
-    },
-    {
-        texto: 'Sobre',
-        url: '/sobre',
-    },
-]
+  {
+    texto: 'Home',
+    url: '/',
+  },
+  {
+    texto: 'Perguntas Frequentes',
+    url: '/faq',
+  },
+  {
+    texto: 'Sobre',
+    url: '/sobre',
+  },
+];
 
-export function Menu() {
+export default function Menu() {
+  return (
+    <MenuWrapper>
+      <div className="left">
+        <img src="/images/logo.svg" alt="Instalura" />
+      </div>
 
-    return(
-        <MenuWrapper>
-            <div className="left">
-                <img src={`/images/logo.svg`} alt="Instalura" />
-            </div>
+      <div className="central">
+        {
+          links.map(link => ((
+            <li key={link.texto}>
+              <Text tag="a" href={link.url}>
+                {link.texto}
+              </Text>
+            </li>
+          )))
+        }
+      </div>
 
-            <div className="central">
-                {
-                    links.map(link => ((
-                        <li key={link.texto}>
-                            <Text tag="a" href={link.url}>
-                                {link.texto}
-                            </Text>
-                        </li>
-                    )))
-                }
-            </div>
+      <div className="right">
+        <Button variant="secondary.main" ghost>
+          Entrar
+        </Button>
 
-            <div className="right">
-                <Button variant="secondary.main" ghost>
-                    Entrar
-                </Button>
-
-                <Button variant="primary.main">
-                    Cadastrar
-                </Button>
-            </div>
-        </MenuWrapper >
-    )
+        <Button variant="primary.main">
+          Cadastrar
+        </Button>
+      </div>
+    </MenuWrapper>
+  );
 }

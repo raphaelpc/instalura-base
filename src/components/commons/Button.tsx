@@ -22,14 +22,19 @@ const ButtonDefault = css<ButtonProps>`
     color: ${props => get(props.theme, `colors.${props.variant}.contrastText`)};
 `;
 
-export const Button = styled.button<ButtonProps>`
+const cssByBreakpointsButton = {
+  xs: css`${TextStyleVariants.smallestException}`,
+  md: css`${TextStyleVariants.paragraph1}`,
+};
+
+const Button = styled.button<ButtonProps>`
     border: 0;
     padding: 12px 26px;
     cursor: pointer;
     font-weight: bold;
     opacity: 1;
 
-    ${props => props.ghost ? ButtonGhost : ButtonDefault}
+    ${({ ghost }) => (ghost ? ButtonGhost : ButtonDefault)}
 
     transition: opacity ${props => props.theme.transition};
     border-radius: ${props => props.theme.borderRadius};
@@ -39,15 +44,10 @@ export const Button = styled.button<ButtonProps>`
         opacity: .5;
     }
 
-    ${breakpointsMedia({
-        xs: css`
-            ${TextStyleVariants.smallestException}
-        `,
-        md: css`
-            ${TextStyleVariants.paragraph1}
-        `,
-    })}
+    ${breakpointsMedia(cssByBreakpointsButton)}
 
     ${propToStyle('margin')}
     ${propToStyle('display')}
 `;
+
+export default Button;

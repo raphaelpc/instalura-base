@@ -5,7 +5,7 @@ interface BoxProps {
     [propName: string]: any;
 }
 
-export const Box = styled.div<BoxProps>`
+const Box = styled.div<BoxProps>`
     ${propToStyle('display')}
     ${propToStyle('flexDirection')}
     ${propToStyle('justifyContent')}
@@ -15,3 +15,5 @@ export const Box = styled.div<BoxProps>`
     ${propToStyle('backgroundRepeat')}
     ${propToStyle('backgroundPosition')}
 `;
+
+export default Box;

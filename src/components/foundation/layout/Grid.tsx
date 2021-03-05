@@ -8,6 +8,23 @@ interface ContainerProps {
     [propName: string]: any;
 }
 
+const cssByBreakpointsContainer = {
+  sm: css`
+      max-width: 576px;
+  `,
+  md: css`
+      max-width: 768px;
+      padding-left: 16px;
+      padding-right: 16px;
+  `,
+  lg: css`
+      max-width: 1160px;
+  `,
+  xl: css`
+      max-width: 1222px;
+  `,
+};
+
 const Container = styled.div<ContainerProps>`
     width: 100%;
     max-width: initial;
@@ -17,22 +34,7 @@ const Container = styled.div<ContainerProps>`
     margin-left: auto;
     margin-right: auto;
 
-    ${breakpointsMedia({
-        sm: css`
-            max-width: 576px;
-        `,
-        md: css`
-            max-width: 768px;
-            padding-left: 16px;
-            padding-right: 16px;
-        `,
-        lg: css`
-            max-width: 1160px;
-        `,
-        xl: css`
-            max-width: 1222px;
-        `,
-    })}
+    ${breakpointsMedia(cssByBreakpointsContainer)}
 
     ${propToStyle('marginTop')}
 `;
@@ -66,8 +68,10 @@ const Col = styled.div<ColProps>`
     ${propToStyle('flexDirection')}
 `;
 
-export const Grid = {
-    Container,
-    Row,
-    Col,
-}
+const Grid = {
+  Container,
+  Row,
+  Col,
+};
+
+export default Grid;
