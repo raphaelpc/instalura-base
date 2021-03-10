@@ -1,7 +1,7 @@
 import { DefaultTheme } from 'styled-components';
-import { breakpoints } from './breakpoints';
-import { colors } from './colors';
-import { typographyVariants } from './typographyVariants';
+import breakpoints from './breakpoints';
+import colors from './colors';
+import typographyVariants from './typographyVariants';
 
 const myTheme: DefaultTheme = {
   colors,

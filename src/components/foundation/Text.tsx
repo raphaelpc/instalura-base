@@ -2,8 +2,8 @@
 import React, { ReactNode } from 'react';
 import { get } from 'lodash';
 import styled from 'styled-components';
-import { PropToStyle, propToStyle } from '../../theme/utils/propToStyle';
-import { TextStyleVariants } from '../../theme/utils/text/TextStyleVariants';
+import propToStyle, { PropToStyle } from '../../styles/utils/propToStyle';
+import TextStyleVariants from '../../styles/components/foundation/TextStyleVariants';
 
 interface TextBaseProps {
   variant?: string;

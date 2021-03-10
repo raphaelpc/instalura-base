@@ -1,4 +1,4 @@
-import { breakpointsMedia } from './breakpointsMedia';
+import breakpointsMedia from './breakpointsMedia';
 
 export type PropToStyle = string | number | {
   xs?: string | number;
@@ -12,7 +12,7 @@ interface Props {
   [propName: string]: PropToStyle
 }
 
-export function propToStyle(propName: string) {
+export default function propToStyle(propName: string) {
   return (props: Props) => {
     const propValue = props[propName];
 

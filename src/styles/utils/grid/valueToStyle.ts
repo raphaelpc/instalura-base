@@ -1,9 +1,8 @@
 import { css } from 'styled-components';
-import { breakpointsMedia } from '../breakpointsMedia';
+import breakpointsMedia from '../breakpointsMedia';
 import { PropToStyle } from '../propToStyle';
 
-// eslint-disable-next-line import/prefer-default-export
-export function valueToStyle(value: PropToStyle) {
+export default function valueToStyle(value: PropToStyle) {
   if (typeof value === 'string' || typeof value === 'number') {
     const valueNumber = Number(value);
     return css`

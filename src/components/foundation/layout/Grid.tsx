@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
-import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
-import { propToStyle, PropToStyle } from '../../../theme/utils/propToStyle';
-import { valueToStyle } from '../../../theme/utils/grid/valueToStyle';
-import { offsetToStyle } from '../../../theme/utils/grid/offsetToStyle';
+import breakpointsMedia from '../../../styles/utils/breakpointsMedia';
+import propToStyle, { PropToStyle } from '../../../styles/utils/propToStyle';
+import valueToStyle from '../../../styles/utils/grid/valueToStyle';
+import offsetToStyle from '../../../styles/utils/grid/offsetToStyle';
 
 interface ContainerProps {
     [propName: string]: any;

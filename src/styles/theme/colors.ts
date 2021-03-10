@@ -1,7 +1,6 @@
 import { Colors } from 'styled-components';
 
-// eslint-disable-next-line import/prefer-default-export
-export const colors: Colors = {
+const colors: Colors = {
   background: {
     light: {
       color: '#FFFFFF',
@@ -41,3 +40,5 @@ export const colors: Colors = {
     dark: {},
   },
 };
+
+export default colors;

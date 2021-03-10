@@ -1,8 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 
-// eslint-disable-next-line import/prefer-default-export
-export const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
@@ -27,3 +26,5 @@ export const GlobalStyle = createGlobalStyle`
     flex-direction: column;
   }
 `;
+
+export default GlobalStyle;

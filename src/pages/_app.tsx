@@ -1,8 +1,8 @@
 import React from 'react';
 import { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
-import theme from '../theme';
-import { GlobalStyle } from '../theme/utils/GlobalStyle';
+import GlobalStyle from '../styles/global';
+import theme from '../styles/theme';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

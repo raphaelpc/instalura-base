@@ -1,5 +1,5 @@
 import { css, FlattenInterpolation } from 'styled-components';
-import { breakpoints } from '../breakpoints';
+import breakpoints from '../theme/breakpoints';
 
 interface CssByBreakpoints {
   xs?: FlattenInterpolation<any>;
@@ -9,8 +9,7 @@ interface CssByBreakpoints {
   xl?: FlattenInterpolation<any>;
 }
 
-// eslint-disable-next-line import/prefer-default-export
-export function breakpointsMedia(cssByBreakpoints: CssByBreakpoints) {
+export default function breakpointsMedia(cssByBreakpoints: CssByBreakpoints) {
   const breakpointsNames = Object.keys(cssByBreakpoints);
   const breakpointsAvailable = Object.keys(breakpoints);
 

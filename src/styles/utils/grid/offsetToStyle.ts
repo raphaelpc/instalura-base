@@ -1,9 +1,8 @@
 import { css } from 'styled-components';
-import { breakpointsMedia } from '../breakpointsMedia';
+import breakpointsMedia from '../breakpointsMedia';
 import { PropToStyle } from '../propToStyle';
 
-// eslint-disable-next-line import/prefer-default-export
-export function offsetToStyle(offset: PropToStyle) {
+export default function offsetToStyle(offset: PropToStyle) {
   if (typeof offset === 'string' || typeof offset === 'number') {
     const offsetNumber = Number(offset);
     return css`

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { propToStyle } from '../../../theme/utils/propToStyle';
+import propToStyle from '../../../styles/utils/propToStyle';
 
 interface BoxProps {
     [propName: string]: any;

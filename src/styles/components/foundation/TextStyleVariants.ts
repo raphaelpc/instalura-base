@@ -1,7 +1,6 @@
 import { css } from 'styled-components';
 
-// eslint-disable-next-line import/prefer-default-export
-export const TextStyleVariants = {
+const TextStyleVariants = {
   title: css`
     font-size: ${props => props.theme.typographyVariants.title.fontSize};
     font-weight: ${props => props.theme.typographyVariants.title.fontWeight};
@@ -33,3 +32,5 @@ export const TextStyleVariants = {
     line-height: ${props => props.theme.typographyVariants.smallestException.lineHeight};
   `,
 };
+
+export default TextStyleVariants;
