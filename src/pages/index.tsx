@@ -49,7 +49,7 @@ export default function Home() {
         {(props: any) => (
           // eslint-disable-next-line react/jsx-props-no-spreading
           <Box backgroundColor="white" {...props}>
-            Nosso conteúdo
+            Nosso conteúdo é bom demais!!
           </Box>
         )}
       </Modal>
