@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 import Button from '../components/commons/Button';
 import Footer from '../components/commons/Footer';
@@ -6,8 +6,19 @@ import Menu from '../components/commons/Menu';
 import Box from '../components/foundation/layout/Box';
 import Grid from '../components/foundation/layout/Grid';
 import Text from '../components/foundation/Text';
+import Modal from '../components/commons/Modal';
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  function handleModalClose() {
+    setIsModalOpen(false);
+  }
+
+  function handleCadastrar() {
+    setIsModalOpen(true);
+  }
+
   return (
     <Box
       flex={1}
@@ -22,6 +33,26 @@ export default function Home() {
       <Head>
         <title>Instalura!!</title>
       </Head>
+
+      {/*
+        [SOLID]
+        S = Single Responsability
+        O = Open Closed
+        L = Liskov Substitution
+        I = Interface Segregation
+        D = Dependency Inversion
+      */ }
+      <Modal
+        isOpen={isModalOpen}
+        onClose={handleModalClose}
+      >
+        {(props: any) => (
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          <Box backgroundColor="white" {...props}>
+            Nosso conteúdo
+          </Box>
+        )}
+      </Modal>
 
       <Menu />
 
@@ -69,6 +100,7 @@ export default function Home() {
                 xs: 'auto auto 40px',
                 md: 'initial',
               }}
+              onClick={handleCadastrar}
             >
               Cadastrar
             </Button>
