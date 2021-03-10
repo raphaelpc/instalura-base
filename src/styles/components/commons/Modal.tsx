@@ -19,6 +19,8 @@ const ModalWrapper = styled.div<ModalWrapperProps>`
   background: rgba(0, 0, 0, 0.1);
   margin: auto;
   overflow: scroll;
+  transition: .3s;
+  z-index: 100;
 
   ${({ isOpen }: ModalWrapperProps) => {
     if (isOpen) {

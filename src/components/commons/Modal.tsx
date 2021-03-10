@@ -1,4 +1,5 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
 import ModalWrapper from '../../styles/components/commons/Modal';
 
 interface ModalProps {
@@ -21,9 +22,28 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
       isOpen={isOpen}
       onClick={onClickHandle}
     >
-      {children({
-        'data-modal-safe-area': 'true',
-      })}
+      <motion.div
+        variants={{
+          open: {
+            x: 0,
+          },
+          closed: {
+            x: '-100%',
+          },
+        }}
+        animate={isOpen ? 'open' : 'closed'}
+        transition={{
+          duration: 0.5,
+        }}
+        style={{
+          display: 'flex',
+          flex: 1,
+        }}
+      >
+        {children({
+          'data-modal-safe-area': 'true',
+        })}
+      </motion.div>
     </ModalWrapper>
   );
 }
