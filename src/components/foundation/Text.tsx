@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 import React, { ReactNode } from 'react';
 import { get } from 'lodash';
@@ -12,9 +13,11 @@ interface TextBaseProps {
 }
 
 const TextBase = styled.span<TextBaseProps>`
-    color: ${props => get(props.theme, `colors.${props.color}.color`)};
     ${props => TextStyleVariants[props.variant]}
+    color: ${props => get(props.theme, `colors.${props.color}.color`)};
     ${propToStyle('textAlign')}
+    ${propToStyle('marginBottom')}
+    ${propToStyle('margin')}
 `;
 
 interface TextProps extends TextBaseProps {

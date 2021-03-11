@@ -7,6 +7,7 @@ import Box from '../components/foundation/layout/Box';
 import Grid from '../components/foundation/layout/Grid';
 import Text from '../components/foundation/Text';
 import Modal from '../components/commons/Modal';
+import FormCadastro from '../components/patterns/FormCadastro';
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -46,11 +47,12 @@ export default function Home() {
         isOpen={isModalOpen}
         onClose={handleModalClose}
       >
-        {(props: any) => (
+        {(propsDoModal: any) => (
+          <FormCadastro propsDoModal={propsDoModal} />
           // eslint-disable-next-line react/jsx-props-no-spreading
-          <Box backgroundColor="white" {...props}>
-            Nosso conteúdo é bom demais!!
-          </Box>
+          // <Box backgroundColor="white" {...props}>
+          //   Nosso conteúdo é bom demais!!
+          // </Box>
         )}
       </Modal>
 

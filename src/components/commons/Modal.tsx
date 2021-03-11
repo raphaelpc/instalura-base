@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import ModalWrapper from '../../styles/components/commons/Modal';
+import ModalWrapper, { LockScroll } from '../../styles/components/commons/Modal';
 
 interface ModalProps {
   isOpen: boolean;
@@ -22,13 +22,14 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
       isOpen={isOpen}
       onClick={onClickHandle}
     >
+      {isOpen && <LockScroll />}
       <motion.div
         variants={{
           open: {
             x: 0,
           },
           closed: {
-            x: '-100%',
+            x: '100%',
           },
         }}
         animate={isOpen ? 'open' : 'closed'}

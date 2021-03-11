@@ -4,10 +4,6 @@ import propToStyle, { PropToStyle } from '../../../styles/utils/propToStyle';
 import valueToStyle from '../../../styles/utils/grid/valueToStyle';
 import offsetToStyle from '../../../styles/utils/grid/offsetToStyle';
 
-interface ContainerProps {
-    [propName: string]: any;
-}
-
 const cssByBreakpointsContainer = {
   sm: css`
       max-width: 576px;
@@ -25,6 +21,10 @@ const cssByBreakpointsContainer = {
   `,
 };
 
+interface ContainerProps {
+    [propName: string]: any;
+}
+
 const Container = styled.div<ContainerProps>`
     width: 100%;
     max-width: initial;
@@ -39,11 +39,20 @@ const Container = styled.div<ContainerProps>`
     ${propToStyle('marginTop')}
 `;
 
-const Row = styled.div`
+interface RowProps {
+    [propName: string]: any;
+}
+
+const Row = styled.div<RowProps>`
     display: flex;
     flex-wrap: wrap;
     margin-left: -16px;
     margin-right: -16px;
+
+    ${propToStyle('flex')}
+    ${propToStyle('marginLeft')}
+    ${propToStyle('marginRight')}
+    ${propToStyle('justifyContent')}
 `;
 
 interface ColProps {
@@ -62,10 +71,12 @@ const Col = styled.div<ColProps>`
     ${props => valueToStyle(props.value)}
     ${props => offsetToStyle(props.offset)}
 
-    ${propToStyle('display')}
     ${propToStyle('alignItems')}
-    ${propToStyle('justifyContent')}
+    ${propToStyle('display')}
+    ${propToStyle('flex')}
     ${propToStyle('flexDirection')}
+    ${propToStyle('justifyContent')}
+    ${propToStyle('paddingRight')}
 `;
 
 const Grid = {

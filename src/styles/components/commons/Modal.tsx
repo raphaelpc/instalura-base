@@ -1,7 +1,8 @@
-import styled, { css } from 'styled-components';
+import styled, { createGlobalStyle, css } from 'styled-components';
 
 interface ModalWrapperProps {
   isOpen: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onClick: any;
 }
 
@@ -38,3 +39,9 @@ const ModalWrapper = styled.div<ModalWrapperProps>`
 `;
 
 export default ModalWrapper;
+
+export const LockScroll = createGlobalStyle`
+  body {
+    overflow: hidden;
+  }
+`;
