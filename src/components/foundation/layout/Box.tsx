@@ -6,15 +6,17 @@ interface BoxProps {
 }
 
 const Box = styled.div<BoxProps>`
-    ${propToStyle('display')}
-    ${propToStyle('flexDirection')}
-    ${propToStyle('justifyContent')}
-    ${propToStyle('flex')}
-    ${propToStyle('flexWrap')}
     ${propToStyle('backgroundColor')}
     ${propToStyle('backgroundImage')}
-    ${propToStyle('backgroundRepeat')}
     ${propToStyle('backgroundPosition')}
+    ${propToStyle('backgroundRepeat')}
+    ${propToStyle('boxShadow')}
+    ${propToStyle('display')}
+    ${propToStyle('flex')}
+    ${propToStyle('flexDirection')}
+    ${propToStyle('flexWrap')}
+    ${propToStyle('justifyContent')}
+    ${propToStyle('padding')}
 `;
 
 export default Box;

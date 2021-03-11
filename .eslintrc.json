@@ -7,7 +7,9 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "airbnb"
+        "airbnb",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -35,6 +37,7 @@
         "no-use-before-define": "off",
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".tsx"] }],
         "arrow-parens": ["error", "as-needed"],
-        "import/extensions": ["error", "never", { "svg": "always" }]
+        "import/extensions": ["error", "never", { "svg": "always" }],
+        "@typescript-eslint/explicit-module-boundary-types": "off"
     }
 }
