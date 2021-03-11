@@ -38,6 +38,8 @@
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".tsx"] }],
         "arrow-parens": ["error", "as-needed"],
         "import/extensions": ["error", "never", { "svg": "always" }],
-        "@typescript-eslint/explicit-module-boundary-types": "off"
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "no-shadow": "off",
+        "@typescript-eslint/no-shadow": ["error"]
     }
 }
