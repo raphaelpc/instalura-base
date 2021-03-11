@@ -22,7 +22,7 @@ declare module 'styled-components' {
         secondary: Color;
         tertiary: Color;
         modes: {
-            dark: {};
+            dark: any;
         };
     }
 
