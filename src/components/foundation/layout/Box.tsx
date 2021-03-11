@@ -12,6 +12,7 @@ const Box = styled.div<BoxProps>`
     ${propToStyle('backgroundRepeat')}
     ${propToStyle('boxShadow')}
     ${propToStyle('display')}
+    ${propToStyle('marginTop')}
     ${propToStyle('flex')}
     ${propToStyle('flexDirection')}
     ${propToStyle('flexWrap')}
