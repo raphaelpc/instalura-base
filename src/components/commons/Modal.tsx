@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import ModalWrapper, { LockScroll } from '../../styles/components/commons/Modal';
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  children: any;
+  children: (propsDoModal: any) => ReactNode;
 }
+// Melhor forma de definir interface de children:
+// "4. props.children as a function ( known also as render props pattern )" em
+// https://medium.com/@martin_hotell/react-children-composition-patterns-with-typescript-56dfc8923c64
 
 // children passado como função para o modal
 // o modal envia as props para seu children

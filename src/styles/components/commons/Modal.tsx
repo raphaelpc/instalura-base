@@ -23,7 +23,7 @@ const ModalWrapper = styled.div<ModalWrapperProps>`
   transition: .3s;
   z-index: 100;
 
-  ${({ isOpen }: ModalWrapperProps) => {
+  ${({ isOpen }) => {
     if (isOpen) {
       return css`
         opacity: 1;
