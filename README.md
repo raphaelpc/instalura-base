@@ -1,4 +1,6 @@
-## Índice
+# Instalura
+
+## Summary
 
 - [About](#about)
 - [Folder structure](#folder-structure)
@@ -11,10 +13,14 @@
 
 ## About
 
+![Projeto Base Foto](_docs/projeto-base.png)
+
 An Instagram-alike project created with ReactJS, NextJS and Styled Components for the JAMStack Bootcamp from Alura.
 
 This application is deployed in:
 https://instalura-base-lac.vercel.app/
+
+Check this project's [Figma Layout](https://www.figma.com/file/Veefm1pjkeTFcJC7BUqHge/Instalura?node-id=0%3A1).
 
 
 ## Folder structure
