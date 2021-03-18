@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 import Button from '../components/commons/Button';
 import Footer from '../components/commons/Footer';
