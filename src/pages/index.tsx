@@ -49,10 +49,6 @@ export default function Home() {
       >
         {(propsDoModal: any) => (
           <FormCadastro propsDoModal={propsDoModal} />
-          // eslint-disable-next-line react/jsx-props-no-spreading
-          // <Box backgroundColor="white" {...props}>
-          //   Nosso conteúdo é bom demais!!
-          // </Box>
         )}
       </Modal>
 
