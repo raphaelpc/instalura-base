@@ -36,6 +36,7 @@ const Container = styled.div<ContainerProps>`
 
     ${breakpointsMedia(cssByBreakpointsContainer)}
 
+    ${propToStyle('flex')}
     ${propToStyle('marginTop')}
 `;
 
@@ -50,8 +51,11 @@ const Row = styled.div<RowProps>`
     margin-right: -16px;
 
     ${propToStyle('flex')}
+    ${propToStyle('flexDirection')}
+    ${propToStyle('marginBottom')}
     ${propToStyle('marginLeft')}
     ${propToStyle('marginRight')}
+    ${propToStyle('marginTop')}
     ${propToStyle('justifyContent')}
 `;
 
@@ -76,6 +80,7 @@ const Col = styled.div<ColProps>`
     ${propToStyle('flex')}
     ${propToStyle('flexDirection')}
     ${propToStyle('justifyContent')}
+    ${propToStyle('order')}
     ${propToStyle('paddingRight')}
 `;
 
