@@ -19,7 +19,11 @@ const links = [
   },
 ];
 
-export default function Menu() {
+interface MenuProps {
+  onCadastrar: () => void;
+}
+
+export default function Menu({ onCadastrar }: MenuProps) {
   return (
     <MenuWrapper>
       <div className="left">
@@ -30,7 +34,7 @@ export default function Menu() {
         {
           links.map(link => ((
             <li key={link.texto}>
-              <Text tag="a" href={link.url}>
+              <Text href={link.url}>
                 {link.texto}
               </Text>
             </li>
@@ -39,11 +43,11 @@ export default function Menu() {
       </div>
 
       <div className="right">
-        <Button variant="secondary.main" ghost>
+        <Button variant="secondary.main" ghost href="/login">
           Entrar
         </Button>
 
-        <Button variant="primary.main">
+        <Button variant="primary.main" onClick={onCadastrar}>
           Cadastrar
         </Button>
       </div>
