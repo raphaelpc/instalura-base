@@ -56,7 +56,7 @@ export default function Home() {
         )}
       </Modal>
 
-      <Menu />
+      <Menu onCadastrar={handleCadastrar} />
 
       <Grid.Container
         marginTop={{ xs: '10px', md: '0px' }}
