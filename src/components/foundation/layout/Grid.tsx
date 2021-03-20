@@ -50,6 +50,7 @@ const Row = styled.div<RowProps>`
     margin-left: -16px;
     margin-right: -16px;
 
+    ${propToStyle('alignItems')}
     ${propToStyle('flex')}
     ${propToStyle('flexDirection')}
     ${propToStyle('marginBottom')}

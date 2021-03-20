@@ -1,4 +1,5 @@
 import React from 'react';
+import { WebsiteWrapperProvider } from '../../components/contexts/WebsiteWrapper';
 import FAQScreen, { FAQCategory } from '../../components/screens/FAQScreen';
 
 interface FAQPageProps {
@@ -16,7 +17,9 @@ export default function FAQPage({ faqCategories }: FAQPageProps) {
   // }, []);
 
   return (
-    <FAQScreen faqCategories={faqCategories} />
+    <WebsiteWrapperProvider>
+      <FAQScreen faqCategories={faqCategories} />
+    </WebsiteWrapperProvider>
   );
 }
 
