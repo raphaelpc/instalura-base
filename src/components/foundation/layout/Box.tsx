@@ -6,6 +6,7 @@ interface BoxProps {
 }
 
 const Box = styled.div<BoxProps>`
+  ${propToStyle('alignItems')}
   ${propToStyle('backgroundColor')}
   ${propToStyle('backgroundImage')}
   ${propToStyle('backgroundPosition')}

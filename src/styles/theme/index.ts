@@ -3,7 +3,7 @@ import breakpoints from './breakpoints';
 import colors from './colors';
 import typographyVariants from './typographyVariants';
 
-const myTheme: DefaultTheme = {
+const theme: DefaultTheme = {
   colors,
   typographyVariants,
   breakpoints,
@@ -12,4 +12,4 @@ const myTheme: DefaultTheme = {
   transition: '200ms ease-in-out',
 };
 
-export default myTheme;
+export default theme;

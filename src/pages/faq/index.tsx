@@ -1,11 +1,12 @@
 import React from 'react';
+import { withWebsiteWrapper } from '../../components/wrappers/WebsiteWrapper';
 import FAQScreen, { FAQCategory } from '../../components/screens/FAQScreen';
 
 interface FAQPageProps {
   faqCategories: FAQCategory[];
 }
 
-export default function FAQPage({ faqCategories }: FAQPageProps) {
+function FAQPage({ faqCategories }: FAQPageProps) {
   // FORMA TRADICIONAL:
   // const [faqCategories, setFaqCategories] = useState([]);
   // useEffect(() => {
@@ -19,6 +20,14 @@ export default function FAQPage({ faqCategories }: FAQPageProps) {
     <FAQScreen faqCategories={faqCategories} />
   );
 }
+
+export default withWebsiteWrapper(FAQPage, {
+  pageWrapperProps: {
+    seoProps: {
+      headTitle: 'Perguntas Frequentes',
+    },
+  },
+});
 
 export async function getStaticProps() {
   const response = await fetch('https://instalura-api.vercel.app/api/content/faq');
