@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, {
+  ComponentType,
   createContext,
   ReactNode,
   useContext,
@@ -11,6 +12,7 @@ import Modal from '../commons/Modal';
 import SEO from '../commons/SEO';
 import Box from '../foundation/layout/Box';
 import FormCadastro from '../patterns/FormCadastro';
+import GlobalProvider from '../providers/GlobalProvider';
 
 interface WebsiteWrapperProviderProps {
   children: ReactNode;
@@ -27,6 +29,10 @@ interface WebsiteWrapperProviderProps {
   };
 }
 
+interface PageWrapperProps {
+  pageWrapperProps: Omit<WebsiteWrapperProviderProps, 'children'>;
+}
+
 interface WebsiteWrapperContextData {
   openModalCadastro: () => void;
 }
@@ -36,7 +42,7 @@ const WebsiteWrapperContext = createContext<WebsiteWrapperContextData>(
   {} as WebsiteWrapperContextData
 );
 
-export function WebsiteWrapperProvider({
+function WebsiteWrapperProvider({
   children,
   seoProps,
   pageBoxProps,
@@ -107,6 +113,20 @@ export function WebsiteWrapperProvider({
         <Footer />
       </Box>
     </WebsiteWrapperContext.Provider>
+  );
+}
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+export function withWebsiteWrapper<P extends object>(
+  Component: ComponentType<P>,
+  { pageWrapperProps }: PageWrapperProps,
+) {
+  return (pageProps: P) => (
+    <GlobalProvider>
+      <WebsiteWrapperProvider {...pageWrapperProps}>
+        <Component {...pageProps} />
+      </WebsiteWrapperProvider>
+    </GlobalProvider>
   );
 }
 

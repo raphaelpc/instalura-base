@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '../commons/Button';
 import Grid from '../foundation/layout/Grid';
 import Text from '../foundation/Text';
-import { useWebsiteWrapper } from '../contexts/WebsiteWrapper';
+import { useWebsiteWrapper } from '../wrappers/WebsiteWrapper';
 
 export default function HomeScreen() {
   const { openModalCadastro } = useWebsiteWrapper();
