@@ -5,7 +5,7 @@ import Text from '../foundation/Text';
 import { useWebsiteWrapper } from '../contexts/WebsiteWrapper';
 
 export default function HomeScreen() {
-  const { handleCadastrar } = useWebsiteWrapper();
+  const { openModalCadastro } = useWebsiteWrapper();
   return (
     <Grid.Container
       marginTop={{ xs: '10px', md: '0px' }}
@@ -51,7 +51,7 @@ export default function HomeScreen() {
               xs: 'auto auto 40px',
               md: 'initial',
             }}
-            onClick={handleCadastrar}
+            onClick={openModalCadastro}
           >
             Cadastrar
           </Button>

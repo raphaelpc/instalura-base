@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, {
   createContext,
   ReactNode,
@@ -7,16 +8,27 @@ import React, {
 import Footer from '../commons/Footer';
 import Menu from '../commons/Menu';
 import Modal from '../commons/Modal';
+import SEO from '../commons/SEO';
 import Box from '../foundation/layout/Box';
 import FormCadastro from '../patterns/FormCadastro';
 
 interface WebsiteWrapperProviderProps {
   children: ReactNode;
+  seoProps?: {
+    headTitle?: string;
+  };
+  pageBoxProps?: {
+    backgroundImage?: string;
+    backgroundRepeat?: string;
+    backgroundPosition?: string;
+  };
+  menuProps?: {
+    display?: boolean;
+  };
 }
 
 interface WebsiteWrapperContextData {
-  isModalOpen: boolean;
-  handleCadastrar: () => void;
+  openModalCadastro: () => void;
 }
 
 const WebsiteWrapperContext = createContext<WebsiteWrapperContextData>(
@@ -24,28 +36,41 @@ const WebsiteWrapperContext = createContext<WebsiteWrapperContextData>(
   {} as WebsiteWrapperContextData
 );
 
-export function WebsiteWrapperProvider({ children }: WebsiteWrapperProviderProps) {
+export function WebsiteWrapperProvider({
+  children,
+  seoProps,
+  pageBoxProps,
+  menuProps,
+}: WebsiteWrapperProviderProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  function handleModalClose() {
+  const showMenu = (
+    menuProps === undefined
+    || menuProps.display === undefined
+    || menuProps.display
+  );
+
+  function handleCloseModal() {
     setIsModalOpen(false);
   }
 
-  function handleCadastrar() {
+  function openModalCadastro() {
     setIsModalOpen(true);
   }
 
   return (
     <WebsiteWrapperContext.Provider
       value={{
-        isModalOpen,
-        handleCadastrar,
+        openModalCadastro,
       }}
     >
+      <SEO {...seoProps} />
+
       <Box
         flex="1"
         display="flex"
         flexDirection="column"
+        {...pageBoxProps}
       >
         {/*
           [SOLID]
@@ -57,14 +82,18 @@ export function WebsiteWrapperProvider({ children }: WebsiteWrapperProviderProps
         */ }
         <Modal
           isOpen={isModalOpen}
-          onClose={handleModalClose}
+          onClose={handleCloseModal}
         >
           {propsDoModal => (
             <FormCadastro propsDoModal={propsDoModal} />
           )}
         </Modal>
 
-        <Menu onCadastrar={handleCadastrar} />
+        {
+          showMenu && (
+            <Menu onCadastrar={openModalCadastro} />
+          )
+        }
 
         <Box
           flex="1"

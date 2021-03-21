@@ -17,7 +17,11 @@ export default function FAQPage({ faqCategories }: FAQPageProps) {
   // }, []);
 
   return (
-    <WebsiteWrapperProvider>
+    <WebsiteWrapperProvider
+      seoProps={{
+        headTitle: 'Perguntas Frequentes',
+      }}
+    >
       <FAQScreen faqCategories={faqCategories} />
     </WebsiteWrapperProvider>
   );
