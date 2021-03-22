@@ -42,7 +42,7 @@ const WebsiteWrapperContext = createContext<WebsiteWrapperContextData>(
   {} as WebsiteWrapperContextData
 );
 
-function WebsiteWrapperProvider({
+export function WebsiteWrapperProvider({
   children,
   seoProps,
   pageBoxProps,
@@ -65,20 +65,21 @@ function WebsiteWrapperProvider({
   }
 
   return (
-    <WebsiteWrapperContext.Provider
-      value={{
-        openModalCadastro,
-      }}
-    >
-      <SEO {...seoProps} />
-
-      <Box
-        flex="1"
-        display="flex"
-        flexDirection="column"
-        {...pageBoxProps}
+    <GlobalProvider>
+      <WebsiteWrapperContext.Provider
+        value={{
+          openModalCadastro,
+        }}
       >
-        {/*
+        <SEO {...seoProps} />
+
+        <Box
+          flex="1"
+          display="flex"
+          flexDirection="column"
+          {...pageBoxProps}
+        >
+          {/*
           [SOLID]
           S = Single Responsability
           O = Open Closed
@@ -86,33 +87,34 @@ function WebsiteWrapperProvider({
           I = Interface Segregation
           D = Dependency Inversion
         */ }
-        <Modal
-          isOpen={isModalOpen}
-          onClose={handleCloseModal}
-        >
-          {propsDoModal => (
-            <FormCadastro propsDoModal={propsDoModal} />
-          )}
-        </Modal>
+          <Modal
+            isOpen={isModalOpen}
+            onClose={handleCloseModal}
+          >
+            {propsDoModal => (
+              <FormCadastro propsDoModal={propsDoModal} />
+            )}
+          </Modal>
 
-        {
-          showMenu && (
-            <Menu onCadastrar={openModalCadastro} />
-          )
-        }
+          {
+            showMenu && (
+              <Menu onCadastrar={openModalCadastro} />
+            )
+          }
 
-        <Box
-          flex="1"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
-          {children}
+          <Box
+            flex="1"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+          >
+            {children}
+          </Box>
+
+          <Footer />
         </Box>
-
-        <Footer />
-      </Box>
-    </WebsiteWrapperContext.Provider>
+      </WebsiteWrapperContext.Provider>
+    </GlobalProvider>
   );
 }
 
@@ -122,11 +124,12 @@ export function withWebsiteWrapper<P extends object>(
   { pageWrapperProps }: PageWrapperProps,
 ) {
   return (pageProps: P) => (
-    <GlobalProvider>
-      <WebsiteWrapperProvider {...pageWrapperProps}>
-        <Component {...pageProps} />
-      </WebsiteWrapperProvider>
-    </GlobalProvider>
+    <WebsiteWrapperProvider
+      {...pageWrapperProps}
+      // {...pageProps.pageWrapperProps}
+    >
+      <Component {...pageProps} />
+    </WebsiteWrapperProvider>
   );
 }
 

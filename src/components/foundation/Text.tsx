@@ -3,26 +3,27 @@
 import React, { ReactNode } from 'react';
 import { get } from 'lodash';
 import styled from 'styled-components';
-import propToStyle, { PropToStyle } from '../../styles/utils/propToStyle';
+import propToStyle from '../../styles/utils/propToStyle';
 import TextStyleVariants from '../../styles/components/foundation/TextStyleVariants';
 import Link from '../commons/Link';
 
 interface TextBaseProps {
   variant?: string;
   color?: string;
-  textAlign?: PropToStyle;
 }
 
 const TextBase = styled.span<TextBaseProps>`
     ${({ variant }) => TextStyleVariants[variant]}
     color: ${({ theme, color }) => get(theme, `colors.${color}.color`)};
-    ${propToStyle('textAlign')}
-    ${propToStyle('marginBottom')}
+
+    ${propToStyle('display')}
     ${propToStyle('margin')}
+    ${propToStyle('marginBottom')}
+    ${propToStyle('textAlign')}
 `;
 
 interface TextProps extends TextBaseProps {
-  children: ReactNode;
+  children?: ReactNode;
   tag?: string;
   href?: string;
   [propName: string]: any;
