@@ -1,5 +1,5 @@
 import React from 'react';
-import { withWebsiteWrapper } from '../components/wrappers/WebsiteWrapper';
+import { withWebsiteWrapper } from '../../components/wrappers/WebsiteWrapper';
 
 function LoginPage() {
   return (
