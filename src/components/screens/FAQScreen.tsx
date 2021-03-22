@@ -1,19 +1,8 @@
 import React from 'react';
+import { FAQCategory } from '../../types/faq.types';
 import Box from '../foundation/layout/Box';
 import Grid from '../foundation/layout/Grid';
 import Text from '../foundation/Text';
-
-type Question = {
-  title?: string;
-  slug?: string;
-  description?: string;
-}
-
-export type FAQCategory = {
-  title?: string;
-  slug?: string;
-  questions?: Question[];
-}
 
 interface FAQScreenProps {
   faqCategories: FAQCategory[];

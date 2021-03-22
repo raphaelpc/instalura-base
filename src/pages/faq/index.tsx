@@ -1,6 +1,8 @@
 import React from 'react';
 import { withWebsiteWrapper } from '../../components/wrappers/WebsiteWrapper';
-import FAQScreen, { FAQCategory } from '../../components/screens/FAQScreen';
+import FAQScreen from '../../components/screens/FAQScreen';
+import { FAQCategory } from '../../types/faq.types';
+import { getFaqCategories } from '../../services/faqServices';
 
 interface FAQPageProps {
   faqCategories: FAQCategory[];
@@ -30,19 +32,11 @@ export default withWebsiteWrapper(FAQPage, {
 });
 
 export async function getStaticProps() {
-  const response = await fetch('https://instalura-api.vercel.app/api/content/faq');
-  if (!response.ok) {
-    return {
-      props: {
-        faqCategories: [],
-      },
-    };
-  }
+  const faqCategories = await getFaqCategories();
 
-  const responseJson = await response.json();
   return {
     props: {
-      faqCategories: responseJson?.data,
+      faqCategories,
     },
   };
 }
