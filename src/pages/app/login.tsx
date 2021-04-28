@@ -1,15 +1,7 @@
-import React from 'react';
+import LoginScreen from '../../components/screens/LoginScreen';
 import { withWebsiteWrapper } from '../../components/wrappers/WebsiteWrapper';
 
-function LoginPage() {
-  return (
-    <div>
-      Página de Login
-    </div>
-  );
-}
-
-export default withWebsiteWrapper(LoginPage, {
+export default withWebsiteWrapper(LoginScreen, {
   pageWrapperProps: {
     seoProps: {
       headTitle: 'Login',
