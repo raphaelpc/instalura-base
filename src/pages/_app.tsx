@@ -1,9 +1,12 @@
 import React from 'react';
 import { AppProps } from 'next/app';
+import GlobalProvider from '../components/providers/GlobalProvider';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    <Component {...pageProps} />
+    <GlobalProvider>
+      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+      <Component {...pageProps} />
+    </GlobalProvider>
   );
 }

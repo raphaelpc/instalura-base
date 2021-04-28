@@ -36,6 +36,8 @@ const Container = styled.div<ContainerProps>`
 
     ${breakpointsMedia(cssByBreakpointsContainer)}
 
+    ${propToStyle('alignItems')}
+    ${propToStyle('display')}
     ${propToStyle('flex')}
     ${propToStyle('marginTop')}
 `;

@@ -22,21 +22,23 @@ Input.defaultProps = {
 interface TextFieldProps {
   placeholder: string;
   name: string;
-  onChange(event: ChangeEvent<HTMLInputElement>): void;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  value: any;
+  type?: string;
+  value?: any;
 }
 
 export default function TextField({
   placeholder,
   name,
   onChange,
+  type,
   value,
 }: TextFieldProps) {
   return (
     <InputWrapper>
       <Input
-        type="text"
+        type={type ?? 'text'}
         placeholder={placeholder}
         name={name}
         onChange={onChange}

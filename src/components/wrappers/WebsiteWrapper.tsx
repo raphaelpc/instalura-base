@@ -65,21 +65,20 @@ export function WebsiteWrapperProvider({
   }
 
   return (
-    <GlobalProvider>
-      <WebsiteWrapperContext.Provider
-        value={{
-          openModalCadastro,
-        }}
-      >
-        <SEO {...seoProps} />
+    <WebsiteWrapperContext.Provider
+      value={{
+        openModalCadastro,
+      }}
+    >
+      <SEO {...seoProps} />
 
-        <Box
-          flex="1"
-          display="flex"
-          flexDirection="column"
-          {...pageBoxProps}
-        >
-          {/*
+      <Box
+        flex="1"
+        display="flex"
+        flexDirection="column"
+        {...pageBoxProps}
+      >
+        {/*
           [SOLID]
           S = Single Responsability
           O = Open Closed
@@ -87,34 +86,33 @@ export function WebsiteWrapperProvider({
           I = Interface Segregation
           D = Dependency Inversion
         */ }
-          <Modal
-            isOpen={isModalOpen}
-            onClose={handleCloseModal}
-          >
-            {propsDoModal => (
-              <FormCadastro propsDoModal={propsDoModal} />
-            )}
-          </Modal>
+        <Modal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+        >
+          {propsDoModal => (
+            <FormCadastro propsDoModal={propsDoModal} />
+          )}
+        </Modal>
 
-          {
-            showMenu && (
-              <Menu onCadastrar={openModalCadastro} />
-            )
-          }
+        {
+          showMenu && (
+            <Menu onCadastrar={openModalCadastro} />
+          )
+        }
 
-          <Box
-            flex="1"
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-          >
-            {children}
-          </Box>
-
-          <Footer />
+        <Box
+          flex="1"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          {children}
         </Box>
-      </WebsiteWrapperContext.Provider>
-    </GlobalProvider>
+
+        <Footer />
+      </Box>
+    </WebsiteWrapperContext.Provider>
   );
 }
 
@@ -126,7 +124,7 @@ export function withWebsiteWrapper<P extends object>(
   return (pageProps: P) => (
     <WebsiteWrapperProvider
       {...pageWrapperProps}
-      // {...pageProps.pageWrapperProps}
+    // {...pageProps.pageWrapperProps}
     >
       <Component {...pageProps} />
     </WebsiteWrapperProvider>
