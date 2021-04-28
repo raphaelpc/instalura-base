@@ -22,5 +22,5 @@ describe('/pages/app/login', () => {
 
     // verificar que redirecionou para "/app/profile"
     cy.url().should('include', '/app/profile');
-  })
-})
+  });
+});

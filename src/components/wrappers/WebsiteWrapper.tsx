@@ -12,7 +12,6 @@ import Modal from '../commons/Modal';
 import SEO from '../commons/SEO';
 import Box from '../foundation/layout/Box';
 import FormCadastro from '../patterns/FormCadastro';
-import GlobalProvider from '../providers/GlobalProvider';
 
 interface WebsiteWrapperProviderProps {
   children: ReactNode;
