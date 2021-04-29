@@ -1,13 +1,13 @@
 import React from 'react';
-import Logo from '../../styles/img/Logo';
-import Link from '../commons/Link';
-import Box from '../foundation/layout/Box';
-import Grid from '../foundation/layout/Grid';
-import Text from '../foundation/Text';
-import FormLogin from '../patterns/FormLogin';
-import { useWebsiteWrapper } from '../wrappers/WebsiteWrapper';
+import Logo from '../../../styles/img/Logo';
+import Link from '../../commons/Link';
+import Box from '../../foundation/layout/Box';
+import Grid from '../../foundation/layout/Grid';
+import Text from '../../foundation/Text';
+import FormLogin from '../../patterns/FormLogin';
+import { useWebsiteWrapper } from '../../wrappers/WebsiteWrapper';
 
-export default function LoginScreen() {
+export default function LoginScreenPageObject() {
   const { openModalCadastro } = useWebsiteWrapper();
   return (
     <Grid.Container>
