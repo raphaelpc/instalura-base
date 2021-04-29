@@ -1,40 +1,11 @@
 import React from 'react';
 import Logo from '../../styles/img/Logo';
-import Button from '../commons/Button';
 import Link from '../commons/Link';
-import TextField from '../forms/TextField';
 import Box from '../foundation/layout/Box';
 import Grid from '../foundation/layout/Grid';
 import Text from '../foundation/Text';
+import FormLogin from '../patterns/FormLogin';
 import { useWebsiteWrapper } from '../wrappers/WebsiteWrapper';
-
-function LoginForm() {
-  return (
-    <form id="formCadastro" action="/app/profile">
-      <TextField
-        placeholder="Usuário"
-        name="usuario"
-      />
-      <TextField
-        placeholder="Senha (senhasegura)"
-        name="senha"
-        type="password"
-      />
-
-      <Button
-        type="submit"
-        variant="primary.main"
-        margin={{
-          xs: '0 auto',
-          md: 'initial',
-        }}
-        fullWidth
-      >
-        Entrar
-      </Button>
-    </form>
-  );
-}
 
 export default function LoginScreen() {
   const { openModalCadastro } = useWebsiteWrapper();
@@ -68,7 +39,7 @@ export default function LoginScreen() {
             </Link>
           </Box>
 
-          <LoginForm />
+          <FormLogin />
 
           <Text
             variant="paragraph1"
