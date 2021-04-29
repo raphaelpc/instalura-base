@@ -20,7 +20,21 @@ describe('/pages/app/login', () => {
     cy.get('#formCadastro button[type="submit"]')
       .click();
 
+    // verificar que realizou chamada para o backend
+    cy.intercept('https://instalura-api-git-master-omariosouto.vercel.app/api/login')
+      .as('userLogin');
+
     // verificar que redirecionou para "/app/profile"
     cy.url().should('include', '/app/profile');
+
+    // verificar que foi criado cookie com o token
+    cy.wait('@userLogin')
+      .then(intercept => {
+        const { token } = intercept.response.body.data;
+
+        cy.getCookie('APP_TOKEN')
+          .should('exist')
+          .should('have.property', 'value', token);
+      });
   });
 });
