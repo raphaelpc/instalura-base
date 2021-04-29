@@ -1,4 +1,5 @@
 import { setCookie, destroyCookie } from 'nookies';
+import { isStagingEnv } from '../../infra/env/isStagingEnv';
 
 interface doLoginProps {
   username: string;
@@ -27,6 +28,12 @@ async function HttpClient(
   throw new Error('Falha em pegar os dados do servidor :(');
 }
 
+const BASE_URL = isStagingEnv
+  // Backend de DEV
+  ? 'https://instalura-api-git-master-omariosouto.vercel.app'
+  // Backend de PROD
+  : 'https://instalura-api-omariosouto.vercel.app';
+
 async function doLogin({ username, password }: doLoginProps) {
   const response: {
     data: {
@@ -37,7 +44,7 @@ async function doLogin({ username, password }: doLoginProps) {
         username: string;
       };
     };
-  } = await HttpClient('https://instalura-api-git-master-omariosouto.vercel.app/api/login', {
+  } = await HttpClient(`${BASE_URL}/api/login`, {
     method: 'POST',
     body: {
       username,

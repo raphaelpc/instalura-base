@@ -1,7 +1,7 @@
-import LoginScreen from '../../components/screens/LoginScreen';
+import LoginScreenPageObject from '../../components/screens/LoginScreen';
 import { withWebsiteWrapper } from '../../components/wrappers/WebsiteWrapper';
 
-export default withWebsiteWrapper(LoginScreen, {
+export default withWebsiteWrapper(LoginScreenPageObject, {
   pageWrapperProps: {
     seoProps: {
       headTitle: 'Login',
